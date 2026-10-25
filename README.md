@@ -16,10 +16,15 @@ Both in-scope links returned real content: both links check out.
 
 ## Status of the Snowflake warehouse log
 
-**Not completed this round.** The Snowflake account's free trial has ended and all virtual warehouses are suspended, so the `audits` database, the `linkcheck` table rows, and the analytics memo insight could not be written.
+**Not completed this round.** Every Snowflake operation fails with:
+
+> 250001 (08001): Failed to connect to DB: TLRKMNK-HZ33053.snowflakecomputing.com:443. Your free trial has ended and all of your virtual warehouses have been suspended. Add billing information in the Snowflake web UI to continue using the full set of Snowflake features.
+
+As a result, the `audits` database, the `linkcheck` table and its rows, the final SELECT output, and the analytics memo insight **could not be written**.
 
 Because the data-handling policy only permits removing the raw captures once the warehouse rows and the memo insight are in place, **the capture files have been deliberately retained in this repository**. They are the only surviving evidence of this audit round. Re-run the Snowflake steps after billing is restored, then remove `captures/`.
 
 ## Notes
 
 - Titles above are exactly as fetched; none were assumed or inferred.
+- The two pages were re-fetched this round; the IANA capture in `captures/` was refreshed because the page's served JavaScript had changed since the previous audit.
